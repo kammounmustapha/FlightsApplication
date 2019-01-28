@@ -1,0 +1,23 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Flights Platform", flights_path , id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+            <li><%= link_to "Logged in as <b>#{current_user.name}</b>".html_safe, '#' %></li>
+
+            <li><%= link_to 'Flights', flights_path %></li>
+            <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+                
+        <% else %>
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Log In', login_path %></li>
+            <li><%= link_to 'Sign Up', new_user_path %></li>
+        <% end %>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  

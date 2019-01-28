@@ -1,0 +1,58 @@
+<%= form_with(model: flight, local: true) do |form| %>
+  <% if flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+      <% flight.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :Number %>
+    <%= form.text_field :Number,class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :originairport %>
+    <%= form.text_field :originairport,class: "form-control" %>
+     <%= form.hidden_field :post_id %>
+
+  </div>
+ 
+  <div class="form-group">
+    <%= form.label :destinationairport %>
+    <%= form.text_field :destinationairport,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :departuretime %>
+    <%= form.datetime_select :departuretime,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :arrivaltime %>
+    <%= form.datetime_select :arrivaltime,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :seatsnumber %>
+    <%= form.number_field :seatsnumber,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :passengersnumber %>
+    <%= form.number_field :passengersnumber,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.text_field :price,class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit", class:"btn btn-primary" %>
+  </div>
+<% end %>

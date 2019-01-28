@@ -1,0 +1,41 @@
+<table class="table table-dark">
+<tbody>
+<tr>
+<td>&nbsp;Flight number:</td>
+<td>&nbsp;<strong><%= @flight.Number %></strong></td>
+</tr>
+<tr>
+<td>&nbsp;Origin airport:</td>
+<td>&nbsp; <strong><%=@flight.originairport%> </strong></td>
+</tr>
+<tr>
+<td>&nbsp;Destination airport:</td>
+<td>&nbsp;<strong><%=@flight.destinationairport%></strong></td>
+</tr>
+<tr>
+<td>&nbsp;Departure time:</td>
+<td>&nbsp;<strong><%=@flight.departuretime%></strong></td>
+</tr>
+<tr>
+<td>&nbsp;Arrival time:</td>
+<td>&nbsp;<strong><%= @flight.passengersnumber %></strong></td>
+</tr>
+<tr>
+<td>&nbsp;Number of seats:</td>
+<td>&nbsp;<strong><%=@flight.seatsnumber%></td>
+</tr>
+<tr>
+<td>&nbsp;Number of passanger:</td>
+<td>&nbsp;<strong><%= @flight.passengersnumber %></strong></td>
+</tr>
+<tr>
+<td>&nbsp;Price of the ticket:</td>
+<td>&nbsp;<strong><%= @flight.price %></strong></td>
+</td>
+</tr>
+</tbody>
+</table>
+
+<%= link_to 'Edit', edit_flight_path(@flight),class:"btn btn-primary btn-lg active" %> 
+<%= link_to 'Back', flights_path, class:"btn btn-primary btn-lg active"%>
+<%= link_to 'Add new Passenger', new_passenger_path(flight_id: @flight.id), class: "btn btn-primary btn-lg active" %>

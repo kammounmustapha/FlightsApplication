@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Flights of <%= current_user.name %></h1>
+
+<table class="table table-hover ">
+  <thead>
+    <tr>
+      <th>Flight Number</th>
+      <th>Origin airport</th>
+      <th>Destination airport</th>
+      <th>Departure time</th>
+      <th>Arrival time</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flights.each do |flight| %>
+      <tr>
+        <td><%= flight.Number %></td>
+        <td><%= flight.originairport %></td>
+        <td><%= flight.destinationairport %></td>
+        <td><%= (flight.departuretime) %></td>
+        <td><%= flight.arrivaltime %></td>
+        <td><%= link_to 'Show', flight ,class:"btn btn-primary btn-sm"%></td>
+        <td><%= link_to 'Edit', edit_flight_path(flight) ,class:"btn btn-primary btn-sm"%></td>
+        <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-primary btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Flight', new_flight_path, class:"btn btn-primary btn-lg active"%>
